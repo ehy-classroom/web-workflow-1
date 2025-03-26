@@ -1,0 +1,58 @@
+/*
+Stylesheet für Demo Portfolio Enno
+Kurs Web-Workflow 1
+Version: 1.1
+*/
+
+
+/*---------------------
+RESET
+---------------------*/
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
+
+
+
+/*---------------------
+LAYOUT
+---------------------*/
+
+h1,h2,h3,h4,h5,h6,p {
+margin-bottom: 1rem;
+}
+
+
+
+/*---------------------
+RESPONSIVE BREAKPOINTS
+---------------------*/
+
+/* Breakpoint: 580px */
+@media (min-width: 580px) {
+
+}
+
+/* Breakpoint: 900px */
+@media (min-width: 900px) {
+
+}
+
+/* Breakpoint: 75rem */
+@media (min-width: 75rem) {
+
+    .flexbox {
+        display: flex;
+        /* flex-wrap: wrap; */
+    }
+
+
+}
+
