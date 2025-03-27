@@ -1,7 +1,7 @@
 /*
 Stylesheet für Demo Portfolio Enno
 Kurs Web-Workflow 1
-Version: 1.3.1
+Version: 1.3.2
 */
 
 
@@ -76,11 +76,23 @@ footer {
     min-height: 21vh;
 }
 
+article {
+    margin-bottom: 1em;
+}
+
+
 .container {
     max-width: 75rem;
     margin: 0 auto;
     padding: 1em calc(var(--base-unit) * 2);
 }
+
+.has-sidebar {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
 
 /*---------------------
 NAVIGATION
@@ -104,7 +116,7 @@ TYPOGRAPHY
 
 
 /**-----
-Typography Font Source
+Typography Font Source:
 Inter by Rasmus Andersson
 https://rsms.me/inter/
 -----**/
@@ -135,7 +147,13 @@ Font Weights
     font-weight: 100;
 }
 
-h1,h2,h3,h4,h5,h6,.site-branding {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.site-branding {
     font-weight: 600;
 }
 
@@ -147,6 +165,7 @@ nav a {
 Font Sizes
 ---**/
 
+aside,
 footer {
     font-size: 0.8em;
 }
@@ -164,7 +183,7 @@ Color Tokens
 :root {
     /*Grey Scale Cool*/
     --color-grey-cool-100: hsl(199, 5%, 97%);
-    --color-grey-cool-109: hsla(199, 5%, 97%,0.9);
+    --color-grey-cool-109: hsla(199, 5%, 97%, 0.9);
     /*Sub White*/
     --color-grey-cool-200: hsl(199, 8%, 89%);
     --color-grey-cool-300: hsl(199, 13%, 76%);
@@ -182,15 +201,18 @@ Color Tokens
 
 
     /*Color Tokens Level 2*/
-    --color-bckg-btn-100: var(--color-accent-200);
-    --color-bckg-card-100: var(--color-grey-cool-700);
-
     --color-type-100: var(--color-grey-cool-100);
     --color-type-300: var(--color-grey-cool-300);
     --color-type-500: var(--color-grey-cool-800);
 
-    --color-type-card-100: var(--color-grey-cool-100);
-    --color-type-btn-100: var(--color-grey-cool-100);
+    --color-bckg-card-100: var(--color-grey-cool-200);
+    --color-type-card-100: var(--color-grey-cool-700);
+
+    --color-bckg-btn-100: var(--color-grey-cool-200);
+    --color-type-btn-100: var(--color-grey-cool-800);
+
+    --color-type-btn-100-card: var(--color-grey-cool-100);
+    --color-bckg-btn-100-card: var(--color-accent-200);
 }
 
 
@@ -242,9 +264,41 @@ nav.main-nav {
 
 
 
+
 /*---------------------
 COMPONENTS
 ---------------------*/
+
+/**-----
+Comp Buttons
+---**/
+
+button,
+a.btn {
+    display: inline-block;
+    line-height: 1.2;
+    margin: 0;
+}
+
+
+.btn-100 {
+
+    padding: 3px 12px 2px;
+    border-radius: 1em;
+    border: 2px solid var(--color-bckg-btn-100);
+    /* border: none; */
+    font-size: 1rem;
+    font-weight: 500;
+    background: var(--color-bckg-btn-100);
+    color: var(--color-type-btn-100);
+}
+
+.btn-100:hover {
+    background: var(--color-accent-100);
+    border-color: var(--color-accent-100);
+    color: #fff;
+    cursor: pointer;
+}
 
 
 /**-----
@@ -275,29 +329,18 @@ Comp Card
 
 .card .btn-100 {
     margin-left: auto;
+    /* background: var(--color-bckg-btn-100-card); */
+    /* border-color: var(--color-type-btn-100-card); */
+    /* color: var(--color-type-btn-100-card); */
+}
+
+.card .btn-100:hover {
+    /* background: var(--color-type-btn-100-card); */
+    /* color: var(--color-bckg-btn-100-card); */
 }
 
 
-/**-----
-Comp Buttons
----**/
 
-.btn-100 {
-    margin-left: auto;
-    padding: 0.15em 0.8em 0.1em;
-    border-radius: 1em;
-    border: 2px solid var(--color-type-btn-100);
-    /* border: none; */
-    font-size: 1rem;
-    font-weight: 500;
-    background: var(--color-bckg-btn-100);
-    color: var(--color-type-btn-100);
-}
-
-.btn-100:hover {
-    background: var(--color-type-btn-100);
-    color: var(--color-bckg-btn-100);
-}
 
 
 
@@ -315,6 +358,24 @@ RESPONSIVE BREAKPOINTS
 
     .card {
         width: 50%;
+    }
+
+
+    aside {
+        padding-left: calc(var(--base-unit) * 2);
+        border-left: 1px solid var(--color-grey-cool-300);
+    }
+
+    .has-sidebar h2 {
+        width: 100%;
+    }
+
+    .has-sidebar article {
+        width: 70%;
+    }
+
+    .has-sidebar aside {
+        width: 30%;
     }
 
 }
