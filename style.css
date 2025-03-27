@@ -1,7 +1,7 @@
 /*
 Stylesheet für Demo Portfolio Enno
 Kurs Web-Workflow 1
-Version: 1.3
+Version: 1.3.1
 */
 
 
@@ -178,7 +178,7 @@ Color Tokens
 
     /*Accent Colors */
     --color-accent-100: hsl(30, 97%, 55%);
-    --color-accent-200: hsl(89, 68%, 42%);
+    --color-accent-200: hsl(89, 55%, 42%);
 
 
     /*Color Tokens Level 2*/
@@ -282,7 +282,7 @@ Comp Card
 Comp Buttons
 ---**/
 
-button.btn-100 {
+.btn-100 {
     margin-left: auto;
     padding: 0.15em 0.8em 0.1em;
     border-radius: 1em;
@@ -294,7 +294,7 @@ button.btn-100 {
     color: var(--color-type-btn-100);
 }
 
-button.btn-100:hover {
+.btn-100:hover {
     background: var(--color-type-btn-100);
     color: var(--color-bckg-btn-100);
 }
