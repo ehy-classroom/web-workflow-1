@@ -1,7 +1,7 @@
 /*
 Stylesheet für Demo Portfolio Enno
 Kurs Web-Workflow 1
-Version: 1.1
+Version: 1.3
 */
 
 
@@ -9,14 +9,26 @@ Version: 1.1
 RESET
 ---------------------*/
 
-*, *:before, *:after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 img {
     width: 100%;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 
@@ -25,8 +37,266 @@ img {
 LAYOUT
 ---------------------*/
 
-h1,h2,h3,h4,h5,h6,p {
-margin-bottom: 1rem;
+/**-----
+Layout Tokens
+-----**/
+
+:root {
+    --base-unit: 0.25rem;
+}
+
+
+/**-----
+Base Layout 
+-----**/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-bottom: 1rem;
+}
+
+header {
+    min-height: 13vh;
+}
+
+main {
+    min-height: 76vh;
+}
+
+section {
+    min-height: 34vh;
+}
+
+footer {
+    min-height: 21vh;
+}
+
+.container {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 1em calc(var(--base-unit) * 2);
+}
+
+/*---------------------
+NAVIGATION
+---------------------*/
+
+nav.main-nav {
+    position: sticky;
+    top: 0;
+}
+
+.nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+
+/*---------------------
+TYPOGRAPHY
+---------------------*/
+
+
+/**-----
+Typography Font Source
+Inter by Rasmus Andersson
+https://rsms.me/inter/
+-----**/
+
+:root {
+    font-family: Inter, sans-serif;
+    font-feature-settings: 'liga' 1, 'calt' 1;
+    /* fix for Chrome */
+}
+
+@supports (font-variation-settings: normal) {
+    :root {
+        font-family: InterVariable, sans-serif;
+    }
+}
+
+body {
+    font-weight: 300;
+    line-height: 1.3;
+}
+
+
+/**---
+Font Weights
+---**/
+
+.weight-100 {
+    font-weight: 100;
+}
+
+h1,h2,h3,h4,h5,h6,.site-branding {
+    font-weight: 600;
+}
+
+nav a {
+    font-weight: 500;
+}
+
+/**---
+Font Sizes
+---**/
+
+footer {
+    font-size: 0.8em;
+}
+
+
+/*---------------------
+COLOR & STYLE
+---------------------*/
+
+
+/**---
+Color Tokens
+---**/
+
+:root {
+    /*Grey Scale Cool*/
+    --color-grey-cool-100: hsl(199, 5%, 97%);
+    --color-grey-cool-109: hsla(199, 5%, 97%,0.9);
+    /*Sub White*/
+    --color-grey-cool-200: hsl(199, 8%, 89%);
+    --color-grey-cool-300: hsl(199, 13%, 76%);
+    --color-grey-cool-400: hsl(199, 13%, 68%);
+    --color-grey-cool-500: hsl(199, 13%, 55%);
+    --color-grey-cool-600: hsl(199, 21%, 42%);
+    --color-grey-cool-700: hsl(199, 34%, 34%);
+    --color-grey-cool-800: hsl(199, 42%, 21%);
+    --color-grey-cool-900: hsl(199, 42%, 8%);
+    /*Sub Black*/
+
+    /*Accent Colors */
+    --color-accent-100: hsl(30, 97%, 55%);
+    --color-accent-200: hsl(89, 68%, 42%);
+
+
+    /*Color Tokens Level 2*/
+    --color-bckg-btn-100: var(--color-accent-200);
+    --color-bckg-card-100: var(--color-grey-cool-700);
+
+    --color-type-100: var(--color-grey-cool-100);
+    --color-type-300: var(--color-grey-cool-300);
+    --color-type-500: var(--color-grey-cool-800);
+
+    --color-type-card-100: var(--color-grey-cool-100);
+    --color-type-btn-100: var(--color-grey-cool-100);
+}
+
+
+/**---
+Color Backgrounds
+---**/
+
+body {
+    background: var(--color-grey-cool-100);
+}
+
+nav.main-nav {
+    background: var(--color-grey-cool-109);
+}
+
+
+footer {
+    background: var(--color-grey-cool-800);
+}
+
+
+/**---
+Color Type
+---**/
+
+body {
+    color: var(--color-type-500);
+}
+
+footer {
+    color: var(--color-type-300);
+}
+
+.site-branding a:hover,
+nav a:hover,
+nav .current a {
+    color: var(--color-accent-100);
+}
+
+
+
+/**---
+Style
+---**/
+
+nav.main-nav {
+    border-bottom: 1px solid var(--color-grey-cool-300);
+}
+
+
+
+/*---------------------
+COMPONENTS
+---------------------*/
+
+
+/**-----
+Comp Card
+---**/
+
+.card {
+    padding: calc(var(--base-unit) * 1);
+}
+
+.card .inner {
+    padding: calc(var(--base-unit) * 2);
+    border-radius: calc(var(--base-unit) * 4);
+    background: var(--color-bckg-card-100);
+    color: var(--color-type-card-100)
+}
+
+.card figure {
+    margin-bottom: 1em;
+    border-radius: calc(var(--base-unit) * 2);
+    overflow: hidden;
+}
+
+.card p {
+    font-size: 0.8em;
+    line-height: 1.5;
+}
+
+.card .btn-100 {
+    margin-left: auto;
+}
+
+
+/**-----
+Comp Buttons
+---**/
+
+button.btn-100 {
+    margin-left: auto;
+    padding: 0.15em 0.8em 0.1em;
+    border-radius: 1em;
+    border: 2px solid var(--color-type-btn-100);
+    /* border: none; */
+    font-size: 1rem;
+    font-weight: 500;
+    background: var(--color-bckg-btn-100);
+    color: var(--color-type-btn-100);
+}
+
+button.btn-100:hover {
+    background: var(--color-type-btn-100);
+    color: var(--color-bckg-btn-100);
 }
 
 
@@ -35,24 +305,33 @@ margin-bottom: 1rem;
 RESPONSIVE BREAKPOINTS
 ---------------------*/
 
-/* Breakpoint: 580px */
+/* Breakpoint: Mobil -> Tablet Hoch*/
 @media (min-width: 580px) {
-
-}
-
-/* Breakpoint: 900px */
-@media (min-width: 900px) {
-
-}
-
-/* Breakpoint: 75rem */
-@media (min-width: 75rem) {
 
     .flexbox {
         display: flex;
-        /* flex-wrap: wrap; */
+        flex-wrap: wrap;
     }
 
+    .card {
+        width: 50%;
+    }
 
 }
 
+/* Breakpoint: Tablet Hoch -> Tablet Quer */
+@media (min-width: 900px) {
+
+    .card {
+        width: 33.33%;
+    }
+
+}
+
+/* Breakpoint: Tablet Quer -> Desktop/Laptop */
+@media (min-width: 75rem) {}
+
+
+/*---------------------
+DEV OVERRIDES
+---------------------*/
